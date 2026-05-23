@@ -32,8 +32,3 @@ Diese Custom Integration ist eine **All-In-One-Lösung**. Sie holt die aktuellen
 
 ### Dashboard-Einbindung
 Füge die Karte über den manuellen Code-Editor deines Dashboards (oder im Raw-Konfigurationseditor) hinzu. Die Karte ist durch die Integration bereits vollautomatisch im System registriert!
-
-**Für die 1. Bundesliga:**
-```yaml
-type: 'custom:buli-table-card'
-entity: sensor.bund_scoreboard2
