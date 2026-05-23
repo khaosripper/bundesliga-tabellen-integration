@@ -1,0 +1,8 @@
+{
+  "domain": "buli_table",
+  "name": "Bundesliga Tabelle",
+  "codeowners": ["@KhaosRipper"],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "version": "1.0.0"
+}
