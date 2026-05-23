@@ -1,7 +1,7 @@
 import logging
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.components.frontend import add_extra_js_url
+from homeassistant.components.frontend import async_add_extra_js_url
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
@@ -10,19 +10,15 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Setzt die Integration über ein Config Entry auf."""
     hass.data.setdefault(DOMAIN, {})
     
-    # Registrierung der Dashboard-Karte (vollständig abgesichert gegen Startup-Glitches)
-    try:
-        if hass.http is not None:
-            hass.http.register_static_path(
-                "/buli_table/buli-table-card.js",
-                hass.config.path("custom_components/buli_table/buli-table-card.js"),
-                False
-            )
-            add_extra_js_url(hass, "/buli_table/buli-table-card.js")
-        else:
-            _LOGGER.warning("HTTP-Komponente beim Start noch nicht vollständig bereit. Karte wird verzögert geladen.")
-    except Exception as err:
-        _LOGGER.error("Fehler bei der automatischen Registrierung der Dashboard-Karte: %s", err)
+    # Wir registrieren den gesamten Ordner als statischen Pfad. Das ist wesentlich stabiler!
+    hass.http.register_static_path(
+        "/buli_table",
+        hass.config.path("custom_components/buli_table"),
+        True
+    )
+    
+    # Die offizielle, asynchrone Core-Methode um die Karte ins Frontend zu drücken
+    async_add_extra_js_url(hass, "/buli_table/buli-table-card.js?v=1.1.7")
 
     await hass.config_entries.async_forward_entry_setups(entry, ["sensor"])
     return True
