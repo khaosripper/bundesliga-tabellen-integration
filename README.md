@@ -2,6 +2,9 @@
 
 A custom Home Assistant integration that automatically fetches German Bundesliga (1st and 2nd division) standings via the ESPN API. No complex YAML configuration required! This integration serves as the perfect backend companion for the matching frontend card.
 
+### Preview / Vorschau
+<img width="516" height="705" alt="grafik" src="https://github.com/user-attachments/assets/8dc6f57f-4f8b-4285-bb12-418265c1eb53" />
+
 ---
 
 ## 🇩🇪 Deutsche Version
