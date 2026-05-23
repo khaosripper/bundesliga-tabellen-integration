@@ -3,7 +3,7 @@
 This is the backend component of the Bundesliga Table project. It automatically fetches German Bundesliga (1st and 2nd division) standings via the ESPN API without any YAML configuration. To display the data beautifully, it pairs perfectly with the custom frontend companion card.
 
 ### Preview / Vorschau
-<img width="516" height="705" alt="grafik" src="https://github.com/user-attachments/assets/8dc6f57f-4f8b-4285-bb12-418265c1eb53" />
+<img width="520" height="785" alt="image" src="https://github.com/user-attachments/assets/76054d8a-869f-426b-a62f-eb400901113a" />
 
 ---
 
